@@ -1,31 +1,28 @@
+var add = function(number1, number2) {
+  return number1 + number2;
+};
 
-function calculateBmi() {
-var weight = document.bmiForm.weight.value
-var height = document.bmiForm.height.value
-if(weight > 0 && height > 0){
-var finalBmi = weight/(height/100*height/100)
-document.bmiForm.bmi.value = finalBmi
-if(finalBmi < 18.5){
-document.bmiForm.meaning.value = "That you are too thin."
-}
-if(finalBmi > 18.5 && finalBmi < 25){
-document.bmiForm.meaning.value = "That you are healthy."
-}
-if(finalBmi > 25){
-document.bmiForm.meaning.value = "That you are overweight."
-}
-}
-else{
-alert("Please Fill in everything correctly")
-}
-}
-function convert(degree) {
-    var x;
-    if (degree == "C") {
-        x = document.getElementById("c").value * 9 / 5 + 32;
-        document.getElementById("f").value = Math.round(x);
-    } else {
-        x = (document.getElementById("f").value -32) * 5 / 9;
-        document.getElementById("c").value = Math.round(x);
-    }
-}
+var subtract = function(number1, number2) {
+  return number1 - number2;
+};
+
+var multiply = function(number1, number2) {
+  return number1 * number2;
+};
+
+var divide = function(number1, number2) {
+  return number1 / number2;
+};
+
+$(document).ready(function() {
+  $("form#calculator").submit(function(event) {
+    event.preventDefault();
+
+    var number1 = parseInt($("#number1").val());
+    var number2 = parseInt($("#number2").val());
+
+    var result = add(number1, number2);
+
+    $("#answer").text(result);
+  });
+});
